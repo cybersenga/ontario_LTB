@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LTB-help</title>
+    <link rel="stylesheet" href="firstPage.css" type="text/css" />
+  </head>
+  <body>
+    <main>
+      <h1>Ontario LTB Alert System</h1>
+      <h2>Log in</h2>
+      <img />
+
+      <div>
+        <form id="myLtbForm" onsubmit="submitLtbForm(event)">
+          <label for="username">Username:</label><br />
+          <input
+            class="login"
+            type="text"
+            id="username"
+            name="username"
+            required
+          /><br />
+          <br />
+          <input
+            class="login"
+            type="password"
+            id="pword"
+            name="pword"
+            placeholder="Password*"
+            required
+          /><br />
+
+          <p>I am a:</p>
+          <fieldset>
+            <legend>Are you a Landlord or Tenant?</legend>
+            <input type="radio" id="landlord" name="ltbType" value="Landlord" />
+            <label for="landlord">Landlord</label><br />
+            <input type="radio" id="tenant" name="ltbType" value="Tenant" />
+            <label for="tenant">Tenant</label><br /><br />
+          </fieldset>
+          <br />
+
+          <button class="button" type="submit" onclick="submitLtbForm(event)">
+            SUBMIT
+          </button>
+        </form>
+
+        <script>
+          function submitLtbForm(event) {
+            event.preventDefault();
+
+            const getFname = document.getElementById("firstname").value;
+            const getLname = document.getElementById("lastname").value;
+
+            const isLandlord = document.getElementById("landlord").checked;
+            const isTenant = document.getElementById("tenant").checked;
+
+            if (isLandlord) {
+              window.location.href = "landlord.html";
+              // window.alert("Thanks Landlord");
+            } else if (isTenant) {
+              window.location.href = "tenant.html";
+              //window.alert("Thanks tenant");
+            } else {
+              window.alert("Please select either Landlord or Tenant!");
+            }
+
+            //return submitLtbForm(onclick);
+          }
+        </script>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>@cybersenga copyright</p>
+    </footer>
+  </body>
+</html>
